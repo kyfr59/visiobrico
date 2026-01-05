@@ -12,6 +12,9 @@
     <header>
         <h1>Bienvenue sur VisioBrico</h1>
     </header>
+    <button class="btn btn-primary">
+        FlyonUI Test
+    </button>
     @yield('content')
 </body>
 </html>

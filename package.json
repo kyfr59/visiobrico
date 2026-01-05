@@ -15,6 +15,7 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
+        "flyonui": "^2.4.1",
         "nvm": "^0.0.4"
     }
 }
