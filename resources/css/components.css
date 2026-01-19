@@ -1,0 +1,21 @@
+.btn-menu {
+    @apply flex
+           items-center
+           gap-3
+           px-4
+           py-2
+           text-left
+           text-gray-700
+           transition-colors
+           cursor-pointer
+           whitespace-nowrap
+           hover:bg-gray-50
+           hover:text-orange-500
+           prestataire:hover:text-blue-500
+           hover:md:bg-transparent;
+}
+
+.site {
+    @apply
+        md:max-w-7xl md:mx-auto
+}

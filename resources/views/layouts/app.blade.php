@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VisioBrico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+</head>
+
+    <body class="max-w-full mx-auto lg:relative bg-gray-50">
+
+        {{-- Header avec logo et menus --}}
+        <header>
+            @include('partials.navbar-top')
+        </header>
+
+
+        {{-- Contenu principal injecté par les pages --}}
+        <div class="px-6 pt-6 lg:pt-0 site">
+            @yield('content')
+        </div>
+
+        {{-- Footer / Bottom menu mobile --}}
+        <footer>
+            @include('partials.navbar-bottom')
+        </footer>
+
+    </body>
+</html>
