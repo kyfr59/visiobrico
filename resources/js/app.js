@@ -1,19 +1,6 @@
 import './bootstrap';
 
 
-/* Gère le basculement d'un espace à un autre */
-
-const toggleBricoleur = document.getElementById('toggle-bricoleur');
-const togglePrestataire = document.getElementById('toggle-prestataire');
-
-toggleBricoleur.addEventListener('click', () => {
-    document.documentElement.classList.remove('prestataire');
-});
-togglePrestataire.addEventListener('click', () => {
-    document.documentElement.classList.add('prestataire');
-});
-
-
 /* Gestion de l'affiche du menu sur mobile */
 
 const mobileMenuButton = document.getElementById('mobile-menu-button');

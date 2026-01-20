@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-xl">Page d'accueil publique</div>
+    <div class="text-xl">Page d'accueil demandeur</div>
 @endsection

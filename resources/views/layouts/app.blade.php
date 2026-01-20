@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="{{ $espace }}">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,6 @@
         <header>
             @include('partials.navbar-top')
         </header>
-
 
         {{-- Contenu principal injecté par les pages --}}
         <div class="px-6 pt-6 lg:pt-0 site">
