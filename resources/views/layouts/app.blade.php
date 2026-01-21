@@ -11,7 +11,7 @@
     @endif
 </head>
 
-    <body class="max-w-full mx-auto lg:relative bg-gray-50">
+    <body class="min-w-fit lg:relative bg-gray-50">
 
         {{-- Header avec logo et menus --}}
         <header>
@@ -19,7 +19,7 @@
         </header>
 
         {{-- Contenu principal injecté par les pages --}}
-        <div class="px-6 pt-6 lg:pt-0 site">
+        <div class="p-4 lg:pt-0 site">
             @yield('content')
         </div>
 

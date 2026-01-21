@@ -1,6 +1,6 @@
-<nav id="nav" class="w-full bg-white lg:border-b lg:py-4 lg:border-gray-300 lg:mb-10">
+<nav id="nav" class="bg-white lg:border-b lg:py-4 lg:border-gray-300 lg:mb-10">
     <div class="relative flex justify-between h-16 pl-4 site lg:pr-0">
-        <a href="{{ route('home') }}" alt="Pensez visio pour vos travaux" id="logo" class="flex items-center gap-2 whitespace-nowrap">
+        <a href="{{ route('accueil') }}" alt="Pensez visio pour vos travaux" id="logo" class="flex items-center gap-2 whitespace-nowrap">
             <x-icon-logo />
             <div class="flex flex-col">
                 <span class="text-xl font-semibold leading-tight">VisioBrico</span>
@@ -8,7 +8,6 @@
             </div>
         </a>
         <div id="menu" class="absolute left-0 z-50 hidden w-full overflow-hidden transition-all duration-700 bg-white border-gray-300 shadow-lg max-h-0 top-33 lg:justify-end lg:flex lg:static lg:max-h-full lg:border-none lg:shadow-none">
-
             <div class="px-4 py-3 border-b border-gray-300 lg:hidden">
                 <div class="flex items-center gap-3 lg:hidden">
                     <a href="#">
@@ -58,21 +57,23 @@
 </nav>
 
 <div id="switcher" class="sticky top-0 z-40 w-full bg-gray-100 border-gray-300 border-y lg:w-min lg:bg-transparent lg:border-0">
+
     <div class="px-4 py-3 ">
         <div class="flex items-center gap-3">
-            <a href="{{ route('demandeur.home') }}"
+            <a href="{{ route('demandeur.accueil') }}"
                 class="border relative border-gray-300 cursor-pointer flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2-500 bg-linear-to-r from-orange-500 to-orange-600 prestataire:from-white prestataire:to-white prestataire:text-gray-500 text-white shadow-md shadow-orange-200 prestataire:shadow-none text-nowrap">
                 Espace Demandeur
                 <div class="absolute flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2 prestataire:bg-gray-400 prestataire:outline prestataire:outline-gray-300">8</div>
             </a>
-            <a href="{{ $espace === 'prestataire' ? route('demandeur.home') : route('prestataire.home') }}">
+            <a href="{{ $espace === 'prestataire' ? route('demandeur.accueil') : route('prestataire.accueil') }}">
                 <x-icon-switch-spaces />
             </a>
-            <a href="{{ route('prestataire.home') }}"
+            <a href="{{ route('prestataire.accueil') }}"
                 class="border relative border-gray-300 cursor-pointer flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 bg-white text-gray-500 hover:bg-gray-50 bg-linear-to-r prestataire:from-blue-500 prestataire:to-blue-600 prestataire:text-white prestataire:shadow-md prestataire:shadow-blue-200 text-nowrap">
                 Espace Prestataire
                 <div class="absolute flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-gray-400 border-2 border-white rounded-full -top-2 -right-2 outline outline-gray-300 prestataire:bg-blue-500 prestataire:outline-0">4</div>
             </a>
         </div>
     </div>
+
 </div>
