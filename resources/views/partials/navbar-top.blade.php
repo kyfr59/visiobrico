@@ -65,7 +65,9 @@
                 Espace Demandeur
                 <div class="absolute flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2 prestataire:bg-gray-400 prestataire:outline prestataire:outline-gray-300">8</div>
             </a>
-            <x-icon-switch-spaces />
+            <a href="{{ $espace === 'prestataire' ? route('demandeur.home') : route('prestataire.home') }}">
+                <x-icon-switch-spaces />
+            </a>
             <a href="{{ route('prestataire.home') }}"
                 class="border relative border-gray-300 cursor-pointer flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 bg-white text-gray-500 hover:bg-gray-50 bg-linear-to-r prestataire:from-blue-500 prestataire:to-blue-600 prestataire:text-white prestataire:shadow-md prestataire:shadow-blue-200 text-nowrap">
                 Espace Prestataire
