@@ -15,7 +15,18 @@
 
         {{-- Header avec logo et menus --}}
         <header>
-            @include('partials.navbar-top')
+            @switch($espace)
+                @case('demandeur')
+                    @include('demandeur.navbar-top')
+                    @include('partials.switcher')
+                    @break
+                @case('prestataire')
+                    @include('prestataire.navbar-top')
+                    @include('partials.switcher')
+                    @break
+                @default
+                    @include('public.navbar-top')
+            @endswitch
         </header>
 
         {{-- Contenu principal injecté par les pages --}}
@@ -25,7 +36,15 @@
 
         {{-- Footer / Bottom menu mobile --}}
         <footer>
-            @include('partials.navbar-bottom')
+            @switch($espace)
+                @case('demandeur')
+                    @include('demandeur.navbar-bottom')
+                    @break
+                @case('prestataire')
+                    @include('prestataire.navbar-bottom')
+                    @break
+                @default
+            @endswitch
         </footer>
 
     </body>

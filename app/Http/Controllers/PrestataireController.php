@@ -10,4 +10,19 @@ class PrestataireController extends Controller
     {
         return view('prestataire.home');
     }
+
+    public function profil()
+    {
+        return view('prestataire.profil');
+    }
+
+    public function propositions()
+    {
+        return view('prestataire.propositions');
+    }
+
+    public function recherche()
+    {
+        return view('prestataire.recherche');
+    }
 }

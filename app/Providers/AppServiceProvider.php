@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Jenssegers\Agent\Agent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,10 +21,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $espace = '';
         if (request()->is('prestataire*')) {
-            View::share('espace', 'prestataire');
-        } else {
-            View::share('espace', 'demandeur');
+            $espace = 'prestataire';
+        } elseif (request()->is('demandeur*')) {
+            $espace = 'demandeur';
         }
+        View::share('espace', $espace);
+
+        $agent = new Agent();
+        View::share('isMobile', $agent->isMobile());
+        View::share('isDesktop', $agent->isDesktop());
+        View::share('isTablet', $agent->isTablet());
     }
 }
