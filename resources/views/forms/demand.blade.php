@@ -6,17 +6,26 @@
         @csrf
 
         {{-- Email --}}
-        <label class="block mb-2 text-sm font-medium">
-            Adresse email
-        </label>
-        <input
-            type="email"
-            name="email"
-            required
-            autofocus
-            placeholder="ex: jean@email.fr"
-            class="w-full border rounded px-3 py-2 mb-4"
-        >
+        @guest
+            <label class="block mb-2 text-sm font-medium">
+                Adresse email
+            </label>
+            <input
+                type="email"
+                name="email"
+                required
+                autofocus
+                placeholder="ex: jean@email.fr"
+                class="w-full border rounded px-3 py-2 mb-4"
+            >
+        @else
+            <input
+                type="hidden"
+                name="email"
+                required
+                value="{{ auth()->user()->email }}"
+            >
+        @endif
 
         {{-- Description de la demande --}}
         <label class="block mb-2 text-sm font-medium">

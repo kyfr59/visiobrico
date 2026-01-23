@@ -7,13 +7,19 @@ use App\Models\Demand;
 use Illuminate\Http\Request;
 use App\Services\SendLinkService;
 use App\Services\MagicLoginService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class DemandController extends Controller
 {
     public function index()
     {
-        return view('public.demand');
+        $user = Auth::user();
+        if ($user && $user->isRequester()) {
+            return redirect()->route('requester.demand');
+        }
+        return view('forms.demand');
+
     }
 
     public function add(Request $request, SendLinkService $sendLinkService)

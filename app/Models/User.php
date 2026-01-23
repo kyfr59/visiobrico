@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Request::class);
     }
+
+    public function isRequester(): bool
+    {
+        return true;
+    }
 }
