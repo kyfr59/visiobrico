@@ -17,7 +17,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function envoiLien(Request $request)
+    public function sendlink(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
@@ -73,6 +73,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('accueil');
+        return redirect()->route('home');
     }
 }

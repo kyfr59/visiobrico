@@ -7,7 +7,7 @@
             </a>
             <div class="flex-1 lg:flex-col lg:items-start lg:hidden lg:md:flex">
                 <a href="#" class="lg:text-sm block font-medium text-gray-900">{{ Auth::user()->email }}</a>
-                <form method="POST" action="{{ route('deconnexion') }}">
+                <form method="POST" action="{{ route('disconnect') }}">
                     @csrf
                     <button class="lg:text-xs lg:pt-0.5 lg:flex text-sm text-gray-500 lg:hover:underline" type="submit">Se déconnecter</button>
                 </form>

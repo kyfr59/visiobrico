@@ -16,12 +16,12 @@
         {{-- Header avec logo et menus --}}
         <header>
             @switch($espace)
-                @case('demandeur')
-                    @include('demandeur.navbar-top')
+                @case('requester')
+                    @include('requester.navbar-top')
                     @include('partials.switcher')
                     @break
-                @case('prestataire')
-                    @include('prestataire.navbar-top')
+                @case('provider')
+                    @include('provider.navbar-top')
                     @include('partials.switcher')
                     @break
                 @default
@@ -37,11 +37,11 @@
         {{-- Footer / Bottom menu mobile --}}
         <footer>
             @switch($espace)
-                @case('demandeur')
-                    @include('demandeur.navbar-bottom')
+                @case('requester')
+                    @include('requester.navbar-bottom')
                     @break
-                @case('prestataire')
-                    @include('prestataire.navbar-bottom')
+                @case('provider')
+                    @include('provider.navbar-bottom')
                     @break
                 @default
             @endswitch

@@ -23,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $espace = '';
         if (request()->is('prestataire*')) {
-            $espace = 'prestataire';
+            $espace = 'provider';
         } elseif (request()->is('demandeur*')) {
-            $espace = 'demandeur';
+            $espace = 'requester';
         }
         View::share('espace', $espace);
 

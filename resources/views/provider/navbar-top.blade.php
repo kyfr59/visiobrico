@@ -5,18 +5,18 @@
             <div class="lg:hidden">
                 @include('partials.loginbar')
             </div>
-            <a href="{{ route('prestataire.recherche') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
+            <a href="{{ route('provider.search') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
                 <x-icon-tools class="lg:text-blue-500" />
                 <span>Proposer mes services</span>
             </a>
-            <a href="{{ route('prestataire.propositions') }}" class="py-2 btn-menu flex text-gray-700">
+            <a href="{{ route('provider.proposals') }}" class="py-2 btn-menu flex text-gray-700">
                 <x-icon-list class="lg:text-blue-500" />
                 <span>Mes propositions</span>
             </a>
-            <a href="{{ route('prestataire.profil') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex lg:hidden text-gray-700">
+            <a href="{{ route('provider.profile') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex lg:hidden text-gray-700">
                 <x-icon-user />
                 <span>Mon profil</span>
-                <!--<span class="ml-auto prestataire:bg-blue-500  bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">8</span>-->
+                <!--<span class="ml-auto provider:bg-blue-500  bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">8</span>-->
             </a>
         </div>
         <div class="m-2 lg:hidden">

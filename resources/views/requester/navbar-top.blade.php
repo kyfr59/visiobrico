@@ -5,15 +5,15 @@
             <div class="lg:hidden">
                 @include('partials.loginbar')
             </div>
-            <a href="{{ route('demandeur.demande') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
+            <a href="{{ route('requester.demand') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
                 <x-icon-plus class="lg:text-orange-500" />
                 <span>Nouvelle demande</span>
             </a>
-            <a href="{{ route('demandeur.demandes') }}" class="py-2 btn-menu flex text-gray-700">
+            <a href="{{ route('requester.demands') }}" class="py-2 btn-menu flex text-gray-700">
                 <x-icon-list class="lg:text-orange-500" />
                 <span>Mes demandes</span>
             </a>
-            <a href="{{ route('demandeur.profil') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex lg:hidden text-gray-700">
+            <a href="{{ route('requester.profile') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex lg:hidden text-gray-700">
                 <x-icon-user />
                 <span>Mon profil</span>
                 <!--<span class="ml-auto bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">8</span>-->

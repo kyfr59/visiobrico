@@ -1,13 +1,13 @@
 @php
     switch($espace) {
-        case 'demandeur':
-            $link = route('demandeur.accueil');
+        case 'requester':
+            $link = route('requester.home');
             break;
-        case 'prestataire':
-            $link = route('prestataire.accueil');
+        case 'provider':
+            $link = route('provider.home');
             break;
         default:
-            $link = route('accueil');
+            $link = route('home');
     }
 @endphp
 

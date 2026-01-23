@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('connexion.envoilien') }}">
+        <form method="POST" action="{{ route('connexion.sendlink') }}">
             @csrf
 
             <label class="block mb-2 text-sm font-medium">

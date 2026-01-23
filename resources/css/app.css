@@ -12,4 +12,4 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@custom-variant prestataire (&:where(.prestataire, .prestataire *));
+@custom-variant provider (&:where(.provider, .provider *));
