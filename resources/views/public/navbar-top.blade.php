@@ -10,9 +10,9 @@
                 <x-icon-list class="lg:text-orange-500" />
                 <span>Mes propositions</span>
             </a>
-            <a href="{{ route('prestataire.profil') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex text-gray-700">
+            <a href="{{ route('connexion') }}" class="py-2 mb-4 btn-menu lg:mb-0 flex text-gray-700">
                 <x-icon-user class="lg:text-orange-500" />
-                <span>Mon profil</span>
+                <span>Se connecter</span>
             </a>
         </div>
         <div class="m-2 lg:hidden">
