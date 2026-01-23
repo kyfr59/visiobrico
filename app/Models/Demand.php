@@ -20,6 +20,10 @@ class Demand extends Model
         'photo3',
     ];
 
+     // Définir les constantes pour les statuts
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_ACTIVE = 'active';
+
     // Relation avec User
     public function user()
     {

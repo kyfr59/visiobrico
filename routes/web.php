@@ -16,6 +16,8 @@ Route::post('/deconnexion', [AuthController::class, 'logout'])->name('disconnect
 Route::get('/demande', [DemandController::class, 'index'])->name('public.demand');
 Route::post('/demande', [DemandController::class, 'add'])->name('public.demand.add');
 Route::get('/login', fn () => view('auth.login'))->name('login'); // Route fictive
+Route::get('/error', fn () => view('public.error'))->name('error');
+Route::get('/validation-demande/{token}', [DemandController::class, 'validation'])->name('public.demand.validate');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('demandeur')->group(function () {

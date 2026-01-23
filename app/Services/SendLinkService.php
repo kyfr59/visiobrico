@@ -26,7 +26,7 @@ class SendLinkService
         $token = $this->storeToken($user->email, 'demand', $demand->id);
 
         // Send validation email
-        Mail::to($user->email)->send(new MagicLoginMail($token));
+        Mail::to($user->email)->send(new MagicLoginMail($token, 'validate-demand'));
 
         return $token;
     }
