@@ -12,16 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class DemandController extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-        if ($user && $user->isRequester()) {
-            return redirect()->route('requester.demand');
-        }
-        return view('forms.demand');
-
-    }
-
     public function add(Request $request, SendLinkService $sendLinkService)
     {
         // Validate fields
@@ -36,7 +26,7 @@ class DemandController extends Controller
         if ($user) {
             // Create temp demand
             $data = [
-                'title' => 'Nouvelle demande', // tu peux remplacer par un champ titre si nécessaire
+                'title' => 'Nouvelle demande',
                 'description' => $request->description,
                 'user_id' => $user->id,
                 'status' => 'pending',

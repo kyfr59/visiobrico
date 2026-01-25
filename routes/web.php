@@ -13,7 +13,6 @@ Route::get('/connexion', [AuthController::class, 'index'])->name('connexion');
 Route::get('/connexion/{token}', [AuthController::class, 'connect'])->name('connexion.connect');
 Route::post('/connexion', [AuthController::class, 'sendlink'])->name('connexion.sendlink');
 Route::post('/deconnexion', [AuthController::class, 'logout'])->name('disconnect');
-Route::get('/demande', [DemandController::class, 'index'])->name('public.demand');
 Route::post('/demande', [DemandController::class, 'add'])->name('public.demand.add');
 Route::get('/login', fn () => view('auth.login'))->name('login'); // Route fictive
 Route::get('/error', fn () => view('public.error'))->name('error');

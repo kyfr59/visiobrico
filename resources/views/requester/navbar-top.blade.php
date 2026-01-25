@@ -5,10 +5,9 @@
             <div class="lg:hidden">
                 @include('partials.loginbar')
             </div>
-            <a href="{{ route('requester.demand') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
-                <x-icon-plus class="lg:text-orange-500" />
-                <span>Nouvelle demande</span>
-            </a>
+            <div>
+                <livewire:demand-popup />
+            </div>
             <a href="{{ route('requester.demands') }}" class="py-2 btn-menu flex text-gray-700">
                 <x-icon-list class="lg:text-orange-500" />
                 <span>Mes demandes</span>

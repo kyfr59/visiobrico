@@ -2,5 +2,4 @@
 
 @section('content')
     <div class="text-xl">Nouvelle demande</div>
-    @include('forms.demand')
 @endsection
