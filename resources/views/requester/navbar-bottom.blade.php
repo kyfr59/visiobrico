@@ -1,4 +1,4 @@
-<div class="fixed bottom-0 z-50 w-full pt-8 lg:hidden bt-5">
+<div class="fixed bottom-0 z-50 w-full pt-8 lg:hidden bt-5 pb-[calc(env(safe-area-inset-bottom))]">
     <div class="border-y shadow-[0_-6px_24px_rgba(0,0,0,0.12)] border-gray-300 bg-white relative px-0 py-3 flex justify-between md:justify-around items-center">
 
         <a href="{{ route('requester.home') }}" class="text-center w-[100px] h-[50px] flex flex-col items-center text-xs font-medium {{ request()->routeIs('requester.home') ? 'text-orange-500' : 'text-gray-400' }} provider:text-blue-500">

@@ -40,6 +40,7 @@ const navDiv = document.getElementById('nav');
 const mdQuery = window.matchMedia('(min-width: 1024px)');
 
 function updateSwitcherPosition() {
+  if (!switcherDiv) return;
   const mdQuery = window.matchMedia('(min-width: 1024px)');
   if (mdQuery.matches) {
     menuDiv.insertAdjacentElement('afterend', switcher);
@@ -49,7 +50,7 @@ function updateSwitcherPosition() {
   }
 }
 
-// Appelle au chargement
+// Appel au chargement
 updateSwitcherPosition();
 
 // Appelle à chaque resize

@@ -62,6 +62,7 @@
 
                 <!-- Formulaire -->
                 <form wire:submit.prevent="saveDemand" class="p-6 overflow-y-auto max-h-[60vh]">
+
                     <!-- Email (seulement pour les invités) -->
                     @if($isGuest)
                         <div class="mb-6">
@@ -106,6 +107,10 @@
                                 <i class="fas fa-exclamation-circle mr-1"></i> {{ $message }}
                             </span>
                         @enderror
+                    </div>
+
+                    <div class="mb-6">
+                        <livewire:city-autocomplete />
                     </div>
 
                     <!-- Catégorie -->
