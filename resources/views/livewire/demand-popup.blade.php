@@ -8,11 +8,13 @@
     <!-- Modale -->
     @if($showModal)
         <!-- Overlay -->
-        <div class="border fixed inset-0 bg-black/80 z-40" wire:click="closeModal"></div>
+        <div class="border fixed inset-0 bg-black/80 z-40 cursor-pointer"
+            wire:click="closeModal"
+        ></div>
 
         <!-- Modale content -->
-        <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-xl shadow-2xl h-5/6 w-full max-w-2xl max-h-[90vh] overflow-hidden"
+        <div class="fixed inset-0 z-40 flex items-center justify-center p-4 pointer-events-none">
+            <div class="pointer-events-auto bg-white rounded-xl shadow-2xl h-5/6 w-full max-w-2xl max-h-[90vh] overflow-hidden"
                  @click.stop>
 
                 <!-- En-tête -->
