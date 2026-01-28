@@ -2,10 +2,9 @@
     <div class="relative flex justify-between h-16 pl-4 site lg:pr-0">
         @include('partials.logo')
         <div id="menu" class="absolute left-0 z-50 hidden w-full overflow-hidden transition-all duration-700 bg-gray-100 lg:bg-white border-gray-300 shadow-lg max-h-0 top-[65px] lg:justify-end lg:flex lg:static lg:max-h-full lg:border-none lg:shadow-none">
-            <a href="{{ route('provider.search') }}" class="mt-4 py-2 btn-menu flex lg:mt-0 text-gray-700">
-                <x-icon-plus class="lg:text-orange-500" />
-                <span>Publier une demande</span>
-            </a>
+            <div>
+                <livewire:demand-popup />
+            </div>
             <a href="{{ route('provider.proposals') }}" class="py-2 btn-menu flex text-gray-700">
                 <x-icon-tools class="lg:text-orange-500" />
                 <span>Proposer mes services</span>

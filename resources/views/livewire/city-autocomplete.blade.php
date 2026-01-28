@@ -3,6 +3,7 @@
     localQuery: @entangle('query')
 }"
 @click.outside="
+alert('dd');
     open = false;
     // Vider le champ seulement si rien n'est sélectionné
     if (!$wire.selectedCity || $wire.selectedCity === '') {
@@ -10,68 +11,71 @@
         localQuery = '';
     }
 ">
-    <label class="flex justify-between items-center text-sm font-bold text-gray-700 mb-2 w-full">
+    <label class="form-label">
     <div class="flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-5 h-5 text-orange-500" aria-hidden="true">
         <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
         <circle cx="12" cy="10" r="3"></circle>
         </svg>
-        <span>Localisation *</span>
+        <span>Ville</span>
     </div>
-    <span class="text-xs font-normal text-gray-500 whitespace-nowrap">
-        Ex: Nantes, Saint-Nazaire...
+    <span class="mt-0.5 text-xs font-normal text-gray-500 whitespace-nowrap">
+        {{ $helpText }}
     </span>
     </label>
 
     <div class="relative">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lucide lucide-map-pin absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lucide lucide-map-pin absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 z-200">
         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
         </svg>
 
         {{-- Cross button to delete field content --}}
         <button
-        type="button"
-        x-show="localQuery && localQuery.length > 0"
-        wire:click="clearSearch"
-        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full hover:bg-gray-100 transition-colors hover:cursor-pointer"
-        aria-label="Effacer la recherche"
-        >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-gray-400 hover:text-gray-600">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
-        </svg>
+            type="button"
+            x-show="localQuery && localQuery.length > 0"
+            wire:click="clearSearch"
+            class="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full hover:bg-gray-100 transition-colors hover:cursor-pointer"
+            aria-label="Effacer la recherche"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-gray-400 hover:text-gray-600">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+            </svg>
         </button>
 
         {{-- Input field --}}
         <input
-        id="location"
-        wire:model.live.debounce.300ms="query"
-        placeholder="Saisissez une ville"
-        autocomplete="off"
-        type="text"
-        class="w-full pl-14 pr-12 py-4 text-lg border-2 rounded-xl outline-none transition-all relative z-10 border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 bg-white"
-        :class="{ 'rounded-b-none border-b-orange-300': open && @js(count($cities) > 0) }"
-        x-model="localQuery"
-        @focus="open = true"
-        @keydown.escape="
-            open = false;
-            if (!$wire.selectedCity || $wire.selectedCity === '') {
-                $wire.set('query', '');
-                localQuery = '';
-            }
-        "
-        >
+            id="location"
+            wire:model.live.debounce.300ms="query"
+            placeholder="Saisissez une ville"
+            autocomplete="off"
+            type="text"
+            class="form-input with-icon"
+            :class="{ 'rounded-b-none border-b-orange-300': open && @js(count($cities) > 0) }"
+            x-model="localQuery"
+            @focus="open = true"
+            @blur="
+                // Delay pour laisser le click sur une ville se traiter
+                setTimeout(() => {
+                    open = false;
+                    if (!$wire.selectedCity || $wire.selectedCity === '') {
+                        localQuery = '';
+                        $wire.set('query', '');
+                    }
+                }, 100);
+                "
+            >
 
         @if($showDropdown && count($cities) > 0)
-        <ul class="absolute z-10 w-full bg-white border-2 border-gray-200 rounded-b-xl shadow-xl shadow-orange-100/30 mt-[-2px] border-t-2">
+        <ul class="absolute z-10 w-full bg-white border-2 border-gray-200 rounded-b-xl shadow-xl shadow-orange-100/30 mt-[1px] border-t-2">
             {{-- List header --}}
             <li class="px-4 py-3 border-b border-gray-100 bg-gradient-to-r from-orange-50 to-white">
-            <div class="flex items-center justify-between">
-                <span class="text-sm font-semibold text-gray-700">Suggestions</span>
-                <span class="text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded-full">
-                {{ count($cities) }} résultat{{ count($cities) > 1 ? 's' : '' }}
-                </span>
-            </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold text-gray-700">Suggestions</span>
+                    <span class="text-xs text-orange-600 bg-orange-100 px-2 py-1 rounded-full">
+                    {{ count($cities) }} résultat{{ count($cities) > 1 ? 's' : '' }}
+                    </span>
+                </div>
             </li>
 
             {{-- Cities list results --}}

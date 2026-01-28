@@ -11,8 +11,13 @@ class CityAutocomplete extends Component
     public $selectedCity = '';
     public $showDropdown = false;
     public $cities = [];
+    public $helpText = '';
 
-    public function mount()
+    protected $rules = [
+        'selectedCity' => 'string',
+    ];
+
+    public function mount(string $helpText = '')
     {
         // Set defaut value
         /*
@@ -29,7 +34,10 @@ class CityAutocomplete extends Component
             $this->query = $city['nom'];
         }
             */
+
+        $this->helpText = $helpText;
     }
+
 
     public function updatedQuery()
     {
@@ -48,14 +56,16 @@ class CityAutocomplete extends Component
         }
     }
 
-    public function selectCity($city)
-    {
-        $this->selectedCity = $city;
-        $this->query = $city;
-        $this->showDropdown = false;
-        $this->cities = [];
-        $this->dispatch('city-selected', city: $city);
-    }
+     public function selectCity($city)
+{
+    $this->selectedCity = $city;
+    $this->query = $city;
+    $this->showDropdown = false;
+    $this->cities = [];
+
+    $this->validateOnly('selectedCity');
+    $this->dispatch('city-selected', city: $city);
+}
 
     public function clearSearch()
     {

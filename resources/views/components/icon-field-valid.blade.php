@@ -1,0 +1,18 @@
+<svg
+    {{ $attributes->merge([
+        'class' => 'lucide lucide-circle-check-big absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-green-500'
+    ]) }}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+>
+    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+    <path d="m9 11 3 3L22 4"></path>
+</svg>

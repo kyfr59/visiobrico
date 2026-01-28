@@ -23,7 +23,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [RequesterController::class, 'home'])->name('requester.home');
         Route::get('/demandes', [RequesterController::class, 'demands'])->name('requester.demands');
         Route::get('/profil', [RequesterController::class, 'profile'])->name('requester.profile');
-        Route::get('/demande', [RequesterController::class, 'demand'])->name('requester.demand');
     });
 
     Route::prefix('prestataire')->group(function () {

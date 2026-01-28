@@ -13,3 +13,19 @@
 }
 
 @custom-variant provider (&:where(.provider, .provider *));
+
+@layer base {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+        box-shadow: 0 0 0px 1000px white inset !important;
+        -webkit-text-fill-color: #111827 !important; /* gray-900 */
+        transition: background-color 9999s ease-in-out 0s;
+    }
+    input.form-input-valid:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #ecfdf5 inset !important; /* green-50 */
+    }
+}

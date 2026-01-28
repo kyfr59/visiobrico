@@ -13,12 +13,14 @@ class DemandPopup extends Component
     use WithFileUploads;
 
     public $showModal = false;
-    public $title = '';
-    public $description = '';
-    public $email = '';
-    public $category = '';
+    public $title = 'flksdflmksdmlfksdlmfk';
+    public $description = 'mdlfùdlmsdfùflùdfdsfdsfdfdsfdf';
+    public $email = 'kyfr59@gmail.com';
+    public $category = 'peinture';
     public $photos = [];
+    public $city;
     public $isGuest = true;
+    public $successMessage = null;
 
     // Catégories disponibles
     public $categories = [
@@ -31,24 +33,36 @@ class DemandPopup extends Component
     ];
 
     protected $rules = [
-        'title' => 'required|min:5|max:255',
+        'title' => 'required|min:10|max:255',
         'description' => 'required|min:20|max:2000',
         'email' => 'required_if:isGuest,true|email|max:255',
         'category' => 'required|in:plomberie,electricite,peinture,menuiserie,maconnerie,autre',
-        'photos.*' => 'nullable|image|max:5120', // 5MB max
+        'photos.*' => 'nullable|image|max:120', // 5MB max
     ];
 
     protected $messages = [
-        'title.required' => 'Le titre est requis.',
-        'title.min' => 'Le titre doit faire au moins 5 caractères.',
-        'description.required' => 'La description est requise.',
-        'description.min' => 'La description doit faire au moins 20 caractères.',
-        'email.required_if' => 'L\'email est requis pour les invités.',
-        'email.email' => 'L\'email n\'est pas valide.',
-        'category.required' => 'Veuillez sélectionner une catégorie.',
-        'photos.*.image' => 'Les fichiers doivent être des images.',
-        'photos.*.max' => 'L\'image ne doit pas dépasser 5MB.',
+        'title.required' => 'Le titre est requis',
+        'title.min' => 'Le titre doit faire au moins 5 caractères',
+        'description.required' => 'La description est requise',
+        'description.min' => 'La description doit faire au moins 20 caractères',
+        'email.required_if' => 'L\'e-mail est requis',
+        'email.email' => 'L\'e-mail n\'est pas valide',
+        'category.required' => 'La catégorie est requise',
+        'photos.max' => 'Vous pouvez ajouter au maximum 3 photos',
+        'photos.*.image' => 'Les fichiers doivent être des images',
+        'photos.*.max' => 'L\'image ne doit pas dépasser 5MB',
+        'photos.*.uploaded' => 'La photo :index n’a pas pu être téléchargée',
     ];
+
+    protected $listeners = [
+        'city-selected' => 'updateCity'
+    ];
+
+    public function updatedEmail() { $this->validateOnly('email'); }
+    public function updatedTitle() { $this->validateOnly('title'); }
+    public function updatedDescription() { $this->validateOnly('description'); }
+    public function updatedCategory() { $this->validateOnly('category'); }
+    public function updateCity($city) {$this->city = $city;}
 
     public function mount()
     {
@@ -74,10 +88,25 @@ class DemandPopup extends Component
         $this->resetErrorBag();
     }
 
+    public function updatedPhotos()
+    {
+        try {
+            $this->validateOnly('photos.*');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Supprimer le dernier fichier ajouté (pour le pas afficher la vignette)
+            array_pop($this->photos);
+            throw $e;
+        }
+    }
+
     public function saveDemand()
     {
         $this->validate();
 
+        // Message de succès
+        session()->flash('success', 'Demande créée avec succès !');
+
+        /*
         try {
             // Trouver ou créer l'utilisateur
             if ($this->isGuest) {
@@ -101,15 +130,6 @@ class DemandPopup extends Component
                 'category' => $this->category,
             ];
 
-            // Gérer l'upload des photos
-            $photoPaths = [];
-            foreach ($this->photos as $index => $photo) {
-                if ($index < 3) { // Max 3 photos
-                    $path = $photo->store('demands/photos', 'public');
-                    $photoPaths['photo' . ($index + 1)] = $path;
-                }
-            }
-
             // Fusionner les chemins des photos
             $demandData = array_merge($demandData, $photoPaths);
 
@@ -128,6 +148,7 @@ class DemandPopup extends Component
         } catch (\Exception $e) {
             session()->flash('error', 'Une erreur est survenue : ' . $e->getMessage());
         }
+            */
     }
 
     public function removePhoto($index)
