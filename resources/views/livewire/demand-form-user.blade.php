@@ -1,5 +1,5 @@
 
-<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 overflow-y-auto max-h-[60vh] lg:max-h-[77vh]">
+<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 max-h-[60vh] lg:max-h-[77vh]">
 
     {{-- Email --}}
     @if($isGuest)
@@ -41,7 +41,7 @@
     {{-- Infos complémentaires pour création de compte --}}
     @if($showExtraInfo)
         <div class="mb-8">
-            <div class="relative overflow-hidden rounded-2xl border border-orange-200 bg-gradient-to-r from-orange-50 via-orange-100/60 to-orange-50 p-5 shadow-inner">
+            <div class="relative rounded-2xl border border-orange-200 bg-gradient-to-r from-orange-50 via-orange-100/60 to-orange-50 p-5 shadow-inner">
 
                 {{-- Header --}}
                 <div class="flex items-start gap-4 mb-4">
