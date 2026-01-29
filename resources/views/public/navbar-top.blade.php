@@ -3,7 +3,7 @@
         @include('partials.logo')
         <div id="menu" class="absolute left-0 z-50 hidden w-full overflow-hidden transition-all duration-700 bg-gray-100 lg:bg-white border-gray-300 shadow-lg max-h-0 top-[65px] lg:justify-end lg:flex lg:static lg:max-h-full lg:border-none lg:shadow-none">
             <div>
-                <livewire:demand-popup />
+                <livewire:demand-form-main />
             </div>
             <a href="{{ route('provider.proposals') }}" class="py-2 btn-menu flex text-gray-700">
                 <x-icon-tools class="lg:text-orange-500" />

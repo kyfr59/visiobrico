@@ -3,7 +3,6 @@
     localQuery: @entangle('query')
 }"
 @click.outside="
-alert('dd');
     open = false;
     // Vider le champ seulement si rien n'est sélectionné
     if (!$wire.selectedCity || $wire.selectedCity === '') {
@@ -67,7 +66,7 @@ alert('dd');
             >
 
         @if($showDropdown && count($cities) > 0)
-        <ul class="absolute z-10 w-full bg-white border-2 border-gray-200 rounded-b-xl shadow-xl shadow-orange-100/30 mt-[1px] border-t-2">
+        <ul class="absolute z-9999 w-full bg-white border-gray-200 rounded-b-xl shadow-xl shadow-orange-100/30 mt-[1px] border-t-2">
             {{-- List header --}}
             <li class="px-4 py-3 border-b border-gray-100 bg-gradient-to-r from-orange-50 to-white">
                 <div class="flex items-center justify-between">
@@ -83,7 +82,7 @@ alert('dd');
             <li
                 wire:click="selectCity('{{ $city['nom'] }} ({{ $city['codeDepartement'] }})')"
                 @click="open = false"
-                class="px-4 py-3 hover:bg-gradient-to-r hover:from-orange-50/80 hover:to-white cursor-pointer border-b border-gray-100 last:border-b-0 transition-all duration-200 group hover:border-orange-100 hover:scale-[1.002] hover:shadow-sm"
+                class="z-100 px-4 py-3 hover:bg-gradient-to-r hover:from-orange-50/80 hover:to-white cursor-pointer border-b border-gray-100 last:border-b-0 transition-all duration-200 group hover:border-orange-100 hover:scale-[1.002] hover:shadow-sm"
             >
                 <div class="flex items-center gap-3">
                 <div class="relative">
