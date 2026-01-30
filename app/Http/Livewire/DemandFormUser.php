@@ -62,6 +62,14 @@ class DemandFormUser extends Component
     public function validatePseudo() {
 
         $this->validateOnly('pseudo');
+
+        // Pseudo existe ?
+        $exists = \App\Models\User::where('pseudo', $this->pseudo)->exists();
+        if ($exists) {
+            $this->addError('pseudo', "Ce pseudo existe déjà !");
+            return;
+        }
+
     }
 
     public function render()
