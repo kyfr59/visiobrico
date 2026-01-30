@@ -41,26 +41,25 @@
     {{-- Infos complémentaires pour création de compte --}}
     @if($showExtraInfo)
         <div class="mb-8">
-            <div class="relative rounded-2xl border border-orange-200 bg-gradient-to-r from-orange-50 via-orange-100/60 to-orange-50 p-5 shadow-inner">
+            <div class="relative rounded-2xl border border-gray-200 bg-gradient-to-r from-gray-50 via-gray-100/60 to-gray-50 p-5 shadow-inner">
 
                 {{-- Header --}}
-                <div class="flex items-start gap-4 mb-4">
-                    <div class="flex-shrink-0 p-2 rounded-xl bg-orange-500">
-                        {{-- Icône info --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01" />
-                            <circle cx="12" cy="12" r="9" />
-                        </svg>
+                <div class="flex flex-col items-start mb-8">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 p-2 rounded-xl bg-orange-500">
+                            {{-- Icône info --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+                        <span class="ml-4 font-semibold">
+                            Création de votre compte
+                        </span>
                     </div>
-
-                    <div>
-                        <p class="font-semibold text-orange-900">
-                            Informations complémentaires pour la création de votre compte
-                        </p>
-                        <p class="text-sm text-orange-800 mt-1">
-                            Cet e-mail n’est pas encore associé à un compte.
-                            Merci de compléter les informations suivantes pour finaliser votre demande.
-                        </p>
+                    <div class="mt-2 text-sm  mt-1">
+                        Cet e-mail n’est pas encore associé à un compte.
+                        Merci de compléter les informations suivantes pour finaliser votre demande.
                     </div>
                 </div>
 

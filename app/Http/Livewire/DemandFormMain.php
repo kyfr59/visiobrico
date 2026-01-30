@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class DemandFormMain extends Component
 {
-    public $currentStep = 1;
+    public $currentStep = 2;
 
     // Stockage global des données
     public $demand = [];
@@ -15,7 +15,7 @@ class DemandFormMain extends Component
 
     public $successMessage = '';
 
-    public $isOpen = false;
+    public $isOpen = true;
 
     protected $listeners = ['closeModal', 'step2', 'step1'];
 
