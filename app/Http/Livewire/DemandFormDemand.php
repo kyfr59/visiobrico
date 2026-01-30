@@ -55,8 +55,14 @@ class DemandFormDemand extends Component
     protected $listeners = ['closeModal'];
 
     // Initialisation du composant
-    public function mount()
+    public function mount($demand)
     {
+        if ($demand) {
+            $this->title = $demand['title'];
+            $this->description = $demand['description'];
+            $this->category = $demand['category'];
+            // $this->photos = $demand['category'];
+        }
         $this->isGuest = !Auth::check();
     }
 

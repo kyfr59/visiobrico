@@ -29,7 +29,7 @@
                 <div class="flex-1 overflow-y-auto">
                     @if($currentStep == 1)
                         <livewire:demand-form-header />
-                        <livewire:demand-form-demand />
+                        <livewire:demand-form-demand :demand="$demand" />
                     @elseif($currentStep == 2)
                         <livewire:demand-form-header />
                         <livewire:demand-form-user />
