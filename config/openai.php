@@ -13,6 +13,7 @@ return [
     */
 
     'api_key' => env('OPENAI_API_KEY'),
+    'enable_moderation' => env('OPENAI_ENABLE_MODERATION'),
     'organization' => env('OPENAI_ORGANIZATION'),
 
     /*

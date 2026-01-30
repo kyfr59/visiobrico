@@ -118,11 +118,13 @@ class DemandFormDemand extends Component
     {
         $this->validate();
 
-        $moderation = app(\App\Services\ModerationService::class);
-        $result = $moderation->checkText($this->description);
-        if (!$result['allowed']) {
-            $this->addError('description', $result['reason']);
-            return;
+        if (config('openai.enable_moderation')) {
+            $moderation = app(\App\Services\ModerationService::class);
+            $result = $moderation->checkText($this->description);
+            if (!$result['allowed']) {
+                $this->addError('description', $result['reason']);
+                return;
+            }
         }
 
         // Emet un événement pour prévenir le parent qu'on peut passer à l'étape suivante
