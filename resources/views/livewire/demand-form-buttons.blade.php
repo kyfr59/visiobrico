@@ -1,6 +1,6 @@
 {{-- Boutons --}}
 @props(['isGuest', 'desactivateSubmit' => false])
-<div class="flex justify-end space-x-3 pt-6 border-gray-100 mt-10">
+<div class="flex justify-end space-x-3 pt-2 border-gray-100 mt-4">
 
     @if ($currentStep == 2)
         <button type="button"

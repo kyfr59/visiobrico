@@ -1,7 +1,7 @@
 <div x-data>
 
         <label class="form-label !mt-0">
-            <x-icon-user class="text-orange-500" />
+            <x-icon-photo class="text-orange-500" />
             Votre photo de profil
         </label>
 
