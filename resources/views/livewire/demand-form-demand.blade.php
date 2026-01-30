@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 overflow-y-auto max-h-[60vh] lg:max-h-[77vh]">
+<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 overflow-y-auto max-h-[100vh] lg:max-h-[80vh]">
 
     {{-- Titre --}}
     <div class="mb-6">
@@ -223,6 +223,6 @@
     @endif
 
     {{-- Boutons --}}
-    <livewire:demand-form-buttons :isGuest="$isGuest"  />
+    <livewire:demand-form-buttons :isGuest="$isGuest" :currentStep="$currentStep" />
 
 </form>

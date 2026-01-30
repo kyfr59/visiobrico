@@ -17,7 +17,7 @@ class DemandFormMain extends Component
 
     public $isOpen = false;
 
-    protected $listeners = ['closeModal', 'step2'];
+    protected $listeners = ['closeModal', 'step2', 'step1'];
 
     public function openModal()
     {
@@ -63,7 +63,7 @@ class DemandFormMain extends Component
         $this->currentStep = 1;
     }
 
-    // Méthode appelée quand l'enfant émet 'nextStep'
+    // Passage à l'étape 2
     public function step2($data)
     {
         // On met à jour les données globales
@@ -72,6 +72,14 @@ class DemandFormMain extends Component
         $this->message=$data['demand']['title'];
         // On passe à l'étape suivante
         $this->currentStep = 2;
+    }
+
+    // Retour sur l'étape 1
+    public function step1()
+    {
+        if ($this->currentStep > 1) {
+            $this->currentStep--;
+        }
     }
 }
 

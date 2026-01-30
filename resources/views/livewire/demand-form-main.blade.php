@@ -9,26 +9,33 @@
     @if($isOpen)
 
         {{-- Overlay --}}
-        <div class="border fixed inset-0 bg-black/80 z-40 cursor-pointer" wire:click="closeModal"></div>
+        <div class="fixed inset-0 bg-black/70 z-40" wire:click="closeModal"></div>
 
-            <div class="fixed inset-0 z-40 flex items-center justify-center p-4 pointer-events-none">
+        {{-- Wrapper --}}
+        <div class="fixed inset-0 z-50 flex justify-center items-start sm:items-center">
 
-                <div class="fixed top-[50px] left-1/2 transform -translate-x-1/2 pointer-events-auto bg-white rounded-xl lg:rounded-3xl shadow-2xl w-full lg:max-w-3xl max-w-2xl p-0 z-50" @click.stop>
+            {{-- Modal --}}
+            <div
+                class="bg-white w-full
+                    h-[100dvh] sm:h-auto
+                    max-w-2xl sm:max-w-3xl
+                    rounded-b-2xl sm:rounded-3xl
+                    shadow-2xl
+                    overflow-hidden
+                    flex flex-col"
+                @click.stop
+            >
+                {{-- Contenu scrollable --}}
+                <div class="flex-1 overflow-y-auto">
                     @if($currentStep == 1)
                         <livewire:demand-form-header />
-                        <livewire:demand-form-demand :demand="$demand" :wire:key="'demand'" />
+                        <livewire:demand-form-demand />
                     @elseif($currentStep == 2)
                         <livewire:demand-form-header />
-                        <livewire:demand-form-user :user="$user" :wire:key="'user'" />
-                    @elseif($currentStep == 3)
-                        <livewire:demand-form-confirmation :demand="$demand" :user="$user" :wire:key="'confirmation'" />
-                        <div class="flex justify-between mt-4">
-                            <button wire:click="decreaseStep" class="bg-gray-300 px-4 py-2 rounded">Précédent</button>
-                            <button wire:click="submitForm" class="bg-green-500 text-white px-4 py-2 rounded">Confirmer</button>
-                        </div>
+                        <livewire:demand-form-user />
                     @endif
-
                 </div>
+
             </div>
         </div>
     @endif

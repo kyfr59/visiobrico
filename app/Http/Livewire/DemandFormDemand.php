@@ -17,6 +17,7 @@ class DemandFormDemand extends Component
     public $demand = [];
     public $photos = [];
     public $isGuest = true;
+    public $currentStep = 1;
 
     // Catégories disponibles
     public $categories = [

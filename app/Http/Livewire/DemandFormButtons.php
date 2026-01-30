@@ -7,6 +7,7 @@ use Livewire\Component;
 class DemandFormButtons extends Component
 {
     public $user = [];
+    public $currentStep;
 
     public function render()
     {

@@ -1,5 +1,5 @@
 
-<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 max-h-[60vh] lg:max-h-[77vh]">
+<form wire:submit.prevent="submitForm" class="p-6 bg-gray-50 overflow-y-auto max-h-[100vh] lg:max-h-[80vh]">
 
     {{-- Email --}}
     @if($isGuest)
@@ -64,13 +64,23 @@
                     </div>
                 </div>
 
-                {{-- Contenu --}}
+                {{-- Avatar --}}
                 <div class="mt-4">
                     <div
                         class="mb-6"
                         wire:listen.city-selected="updateCity($event.detail.city)"
                     >
-                        <livewire:city-autocomplete help-text="À titre indicatif" />
+                        <livewire:avatar-upload help-text="À titre indicatif" />
+                    </div>
+                </div>
+
+                {{-- Ville --}}
+                <div class="mt-4">
+                    <div
+                        class="mb-6"
+                        wire:listen.city-selected="updateCity($event.detail.city)"
+                    >
+                        <livewire:city-autocomplete help-text="" />
                     </div>
                 </div>
 
@@ -96,6 +106,6 @@
     @endif
 
     {{-- Boutons --}}
-    <livewire:demand-form-buttons :isGuest="$isGuest" :desactivateSubmit="$desactivateSubmit" />
+    <livewire:demand-form-buttons :isGuest="$isGuest" :desactivateSubmit="$desactivateSubmit" :currentStep="$currentStep" />
 
 </form>

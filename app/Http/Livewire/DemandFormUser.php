@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DemandFormUser extends Component
 {
-    public $email = "";
+    public $email = "kyfr59@gmail.scom";
     public $isGuest = true;
     public $showExtraInfo = false;
     public $desactivateSubmit = true;
+    public $currentStep = 2;
 
     protected $rules = [
         'email' => 'required_if:isGuest,true|email|max:255',
@@ -41,6 +42,8 @@ class DemandFormUser extends Component
     // Initialisation du composant
     public function mount()
     {
+        $this->validateEmail();
+
         $this->isGuest = !Auth::check();
 
         if (!empty($this->email)) {
