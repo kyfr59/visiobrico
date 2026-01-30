@@ -15,7 +15,7 @@ class DemandFormMain extends Component
 
     public $successMessage = '';
 
-    public $isOpen = true;
+    public $isOpen = false;
 
     protected $listeners = ['closeModal', 'step2', 'step1'];
 

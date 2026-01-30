@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="m-2 lg:hidden">
-            <button id="mobile-menu-button" class="relative p-2" aria-label="Menu" aria-expanded="false">
+            <button id="mobile-menu-button" class="relative p-2 border" aria-label="Menu" aria-expanded="false">
                 <x-icon-menu class="text-gray-900" />
             </button>
         </div>
