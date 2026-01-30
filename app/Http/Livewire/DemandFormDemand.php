@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Services\ModerationService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -110,6 +111,13 @@ class DemandFormDemand extends Component
     public function submitForm()
     {
         $this->validate();
+
+        $moderation = app(\App\Services\ModerationService::class);
+        $result = $moderation->checkText($this->description);
+        if (!$result['allowed']) {
+            $this->addError('description', $result['reason']);
+            return;
+        }
 
         // Emet un événement pour prévenir le parent qu'on peut passer à l'étape suivante
         $this->dispatch('step2', [
